@@ -40,9 +40,25 @@ const sum = curriedSum(3)(2)(1)(7); // => returns 10
 AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 - Come up with at least two situations (one per person) on when currying would
   be useful
+  Currying could be useful when:
+  - you know how many numbers you need but don't know what the numbers will be
 ***********************************************************************/
 
-// your code here
+function curriedSum(numArgs) {
+  let numbers = [];
+
+  function _curriedSum(number) {
+    numbers.push(number);
+    if (numbers.length === numArgs) {
+      let sum = numbers.reduce((accum, num) => accum + num, 0);
+      return sum;
+    } else {
+      return _curriedSum;
+    }
+  }
+
+  return _curriedSum;
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
