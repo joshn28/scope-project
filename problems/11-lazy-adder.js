@@ -20,9 +20,18 @@ console.log(total); // prints 33
 AFTER YOU ARE FINISHED WITH THIS PROBLEM, ASK FOR A CODE REVIEW
 - Explain, but don't code, how you would turn your solution into a one-line
   fat-arrow function
+  Use a fat-arrow function as the return value for the first fat-arrow function
+  and then use another fat-arrow function as the return value for the second
+  fat-arrow function
 ***********************************************************************/
 
-// your code here
+function lazyAdder(firstNum) {
+  return function (secondNum) {
+    return function (thirdNum) {
+      return firstNum + secondNum + thirdNum;
+    };
+  };
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
