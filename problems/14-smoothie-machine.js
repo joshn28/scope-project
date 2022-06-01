@@ -22,7 +22,27 @@ console.log(smoothie2("pineapple"));
 // prints "I'm having a smoothie with apples and bananas and berries and pineapple"
 ***********************************************************************/
 
-// your code here
+const smoothieMachine = (...args1) => {
+  let string = "I'm having a smoothie with ";
+
+  if (args1.length > 0) {
+    let firstWord = args1[0];
+    string += firstWord;
+    args1.slice(1).forEach(word => string += ` and ${word}`);
+  }
+
+  return function (...args2) {
+    if (string.endsWith("with ") && args2.length > 0) {
+      let firstWord = args2[0];
+      string += firstWord;
+      args2.slice(1).forEach(word => string += ` and ${word}`);
+    } else {
+      args2.forEach(word => string += ` and ${word}`);
+    }
+
+    return string;
+  }
+};
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
