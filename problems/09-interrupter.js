@@ -9,14 +9,19 @@ console.log(rudePerson("how are you")); // prints "how what are what you"
 console.log(rudePerson("I like pie")); // prints "I what like what pie"
 
 
-Invoking the interrupter function again: 
+Invoking the interrupter function again:
 let rudePerson2 = interrupter("yo"); // => returns a function
 console.log(rudePerson2("I love dogs")); // prints "I yo love yo dogs"
 
 
 ***********************************************************************/
 
-// your code here!
+function interrupter(str) {
+  return function (sentence) {
+    let words = sentence.split(" ");
+    return words.join(` ${str} `);
+  };
+}
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 
